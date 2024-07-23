@@ -5,7 +5,7 @@
     "dev": "react-scripts start",
     "watch": "webpack --watch",
     "build": "webpack",
-    "postbuild": "cp public/_redirects dist/"
+    "postbuild": "cp public/_redirects dist/_redirects"
   },
   "dependencies": {
     "nanoid": "^3.3.4",
@@ -23,7 +23,8 @@
     "babel-loader": "^8.2.2",
     "html-webpack-plugin": "^5.3.1",
     "style-loader": "^3.0.0",
-    "css-loader": "^6.0.0"
+    "css-loader": "^6.0.0",
+    "copy-webpack-plugin": "^9.0.0"
   },
   "browserslist": {
     "production": [

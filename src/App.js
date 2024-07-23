@@ -125,7 +125,7 @@ export default function App() {
             </div>
             <p className="record">Record: {record === Infinity ? "N/A" : record} Rolls</p>
             <p className="time-record">Best Time: {timeRecord === Infinity ? "N/A" : formattedTimeRecord} s</p>
-            <audio ref={audioRef} src="/fanfare.mp3" />
+            <audio ref={audioRef} src="fanfare.mp3" />
         </main>
     );
 }

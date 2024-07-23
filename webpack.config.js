@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: 'production',
@@ -32,7 +33,15 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
-      filename: 'index.html'
+      filename: 'index.html',
+      inject: 'body'
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: 'public/fanfare.mp3', to: 'fanfare.mp3' },
+        { from: 'public/vc_robot_jump01.wav', to: 'vc_robot_jump01.wav' },
+        { from: 'src/style.css', to: 'style.css' }
+      ]
     })
   ]
 };

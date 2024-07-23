@@ -37,7 +37,7 @@ export default function Die(props) {
             onClick={handleHoldDice}
         >
             {renderDots()}
-            <audio ref={audioRef} src="/vc_robot_jump01.wav" />
+            <audio ref={audioRef} src="vc_robot_jump01.wav" />
         </div>
     );
 }
