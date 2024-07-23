@@ -1,13 +1,12 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  mode: 'production', // Set the mode to 'production' or 'development'
-  entry: {
-    index: './src/index.js' // Correct entry point
-  },
+  mode: 'production',
+  entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, 'dist'), // Output directory
-    filename: '[name].pack.js' // Output file name pattern
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].pack.js'
   },
   resolve: {
     extensions: ['.js', '.json']
@@ -15,7 +14,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/, // Match JavaScript files
+        test: /\.js$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -25,9 +24,15 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/, // Match CSS files
+        test: /\.css$/,
         use: ['style-loader', 'css-loader']
       }
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+      filename: 'index.html'
+    })
+  ]
 };
