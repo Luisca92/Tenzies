@@ -8,10 +8,10 @@ export default function Die(props) {
     const audioRef = useRef(null);
 
     const handleHoldDice = () => {
-        props.holdDice();
-        if (audioRef.current) {
+        if (!props.isHeld && audioRef.current) {
             audioRef.current.play();
         }
+        props.holdDice();
     };
 
     const renderDots = () => {
